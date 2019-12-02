@@ -1,7 +1,5 @@
 import asyncio
 import websockets
-# from PIL import Image, ImageDraw, ImageFont
-import numpy
 import io
 
 class WebSockets_Server:
