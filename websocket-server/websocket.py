@@ -14,7 +14,7 @@ class WebSockets_Server:
     async def _handler(self, websocket, text):
         while True:
           recv_data = await websocket.recv()
-          send_message = text + ':' + recv_data
+          send_message = self.text + recv_data
           await websocket.send(send_message)
           await websocket.send('server-path:' + get_full_path())
           print('message send!!')
@@ -30,5 +30,5 @@ def get_full_path():
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
-    wss = WebSockets_Server(loop, '127.0.0.1', 60000, 'websocket-server is recieved -> ')
+    wss = WebSockets_Server(loop, '127.0.0.1', 60000, 'websocket-server recieve -> ')
     wss.run()
